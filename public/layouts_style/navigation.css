@@ -1,0 +1,12 @@
+.btnn {
+    /* background-color: transparent; */
+    border: none;
+    text-decoration-line: none;
+    /* fill: currentColor; */
+    height: 1rem/* 16px */;
+    width: 1rem/* 16px */;
+}
+.arrow_down {
+    margin-left: 0.25rem/* 4px */;
+    width:20px;
+}
