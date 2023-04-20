@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id('img-id');
+            $table->id();
+            $table->foreignId('candidacy_applications_id')->constrained();
             $table->string('font-img');
             $table->string('back-img');
-            $table->unsignedBigInteger('cand-id');
             $table->string('registerWork-img');
             $table->string('familyDocument-img');
             $table->string('residenceDocument-img');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('candidates', function (Blueprint $table) {
             $table->id('can-id');
             $table->integer('result-id');
-           // $table->foreign('result-id')->references('result-id')->on('result-application')->onDelete('set null');
+            // $table->foreign('result-id')->references('result-id')->on('result-application')->onDelete('set null');
             $table->string('personal-img');
             $table->timestamps();
         });

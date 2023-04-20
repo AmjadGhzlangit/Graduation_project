@@ -23,27 +23,7 @@
     <!-- Start Header Section  -->
     @include('layouts.navigation')
     <!-- End Header Section  -->
-    {{-- <div class="header">
-        <div class="container">
-            <div class="logo">
-                <!-- <a href="#  ">Electronic Elections</a> -->
-                <a href="#  ">بوابة الانتخابات</a>
-            </div>
-            <ul class="main-nav">
-                <li><a href="#">الرئسية</a></li>
-                <li><a href="#candidates">المرشحين</a></li>
-                <li><a href="#">الانتخابات</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="{{ route('register') }}">تسجيل الدخول</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- End Header Section  -->
+    
     <!-- Start Landing section  -->
     <div class="landing">
         <div class="container">
@@ -383,62 +363,7 @@
     @include('layouts.footer')
     <!-- End footer section  -->
 
-    {{-- <div class="footer">
-    <div class="container">
-        <div class="box">
-            <h3>Electronic elections</h3>
-            <ul class="social">
-                <li>
-                    <a href="#" class="facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="youtube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </li>
-            </ul>
-            <p class="text">
-شكرًا لزيارتكم موقعنا الإلكتروني الخاص بالانتخابات. نحن ملتزمون بتوفير معلومات دقيقة وشفافة حول الانتخابات وعملية
-التصويت            </p>
-        </div>
-        <div class="box">
-            <ul class="links">
-                <li><a href="#">Important Link 1</a></li>
-                <li><a href="#">Important Link 2</a></li>
-                <li><a href="#">Important Link 3</a></li>
-                <li><a href="#">Important Link 4</a></li>
-                <li><a href="#">Important Link 5</a></li>
-            </ul>
-        </div>
-        <div class="box">
-            <div class="line">
-                <i class="fas fa-phone-volume fa-fw"></i>
-                <div class="info">
-                    <span>+20123456789</span>
-                    <span>+20198765432</span>
-                </div>
-            </div>
-        </div>
-        <div class="box footer-gallery">
-            <img src="imgs/gallery-01.png" alt="" />
-            <img src="imgs/gallery-02.png" alt="" />
-            <img src="imgs/gallery-03.jpg" alt="" />
-            <img src="imgs/gallery-04.png" alt="" />
-            <img src="imgs/gallery-05.jpg" alt="" />
-            <img src="imgs/gallery-06.png" alt="" />
-        </div>
-    </div>
-    <p class="copyright">حقوق الملكية و النشر</p>
-</div> --}}
-    <!-- End footer section  -->
-    <script src="main.js"></script>
+    <script src={{ asset('js/main.js') }}></script>
 </body>
 
 </html>

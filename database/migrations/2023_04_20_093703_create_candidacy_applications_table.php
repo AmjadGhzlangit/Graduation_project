@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('candidacy_application', function (Blueprint $table) {
-            $table->id('cndApp-id');
-            $table->string('email');
-            $table->string('password');
+        Schema::create('candidacy_applications', function (Blueprint $table) {
+            $table->id();
             $table->string('phoneNumber');
             $table->string('education');
             $table->string('category');
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidacy_application');
+        Schema::dropIfExists('candidacy_applications');
     }
 };
