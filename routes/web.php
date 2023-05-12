@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CandidacyApplicationController;
+use App\Http\Controllers\IdInformationController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,17 +36,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    
+    Route::get('/id_form',[IdInformationController::class,'index'])->name('id_form');
+    Route::post('/id_form',[IdInformationController::class,'store'])->name('processId_form');
     Route::get('/form1',[CandidacyApplicationController::class,'index'])->name('form_one');
     Route::post('/form1',[CandidacyApplicationController::class,'store'])->name('processForm_one');
     Route::get('/form2',[ImageController::class,'create'])->name('form_two');
     Route::post('/form2',[ImageController::class,'store'])->name('processForm_two');
     });
 
+    Route::view('/index','admin.index');
+    Route::get('/admin',[AdminController::class,'index'])->middleware(['auth','is_admin']);
 require __DIR__.'/auth.php';
 
 

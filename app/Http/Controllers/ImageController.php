@@ -17,7 +17,7 @@ class ImageController extends Controller
     {
         
         $form1Data = session('form1_data')->toArray();
-        
+
     // $fontImg = $request->file('font-img')->store('public/images');
     // $backImg = $request->file('back-img')->store('public/images');
     // $registerWorkImg = $request->file('registerWork-img')->store('public/images');

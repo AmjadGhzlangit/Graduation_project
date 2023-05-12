@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class CandidacyApplicationController extends Controller
 {
+   
     public function index()
     {
         return view('nomiation.form_one');
@@ -15,13 +16,16 @@ class CandidacyApplicationController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request = candidacy_application::create([
+            
             'education'=>$request->input('education'),
+            'election_program'=>$request->input('election_program'),
             'phoneNumber'=>$request->input('phoneNumber'),
             'address'=>$request->input('address'),
             'category'=>$request->input('category'),
         ]);
         session(['form1_data' => $request]);
-        return redirect()->route('form_two');
+        return redirect()->route('id_form');
     }
 }

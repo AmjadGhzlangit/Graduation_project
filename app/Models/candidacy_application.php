@@ -10,11 +10,17 @@ class candidacy_application extends Model
         use HasFactory;
 
         protected $fillable = [
+                'election_program',
                 'phoneNumber',
                 'education',
                 'category',
                 'address',
         ];
+
+        public function Id()
+        {
+                return $this->hasOne(IdInformation::class);
+        }
 
         public function images()
         {

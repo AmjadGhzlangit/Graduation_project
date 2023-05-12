@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('candidacy_applications', function (Blueprint $table) {
             $table->id();
-            $table->string('phoneNumber');
-            $table->string('education');
-            $table->string('category');
-            $table->string('address');
+            $table->string('phoneNumber')->nullable();
+            $table->string('education')->nullable();
+            $table->string('category')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
