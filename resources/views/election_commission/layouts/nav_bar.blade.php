@@ -24,7 +24,7 @@
                 <img src="assets/images/faces/face28.png" alt="image">
             </div>
             <div class="nav-profile-text">
-                <p class="mb-1 text-black">Henry Klein</p>
+                <div>{{ Auth::user()->name }}</div>
             </div>
             </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
@@ -53,14 +53,16 @@
                 </a>
                 <div role="separator" class="dropdown-divider"></div>
                 <h5 class="dropdown-header text-uppercase  ps-2 text-dark mt-2">Actions</h5>
-                <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                <span>Lock Account</span>
-                <i class="mdi mdi-lock ms-1"></i>
-                </a>
-                <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                <span>Log Out</span>
-                <i class="mdi mdi-logout ms-1"></i>
-                </a>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                        <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('logout')}}"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        <span>Log Out</span>
+                        <i class="mdi mdi-logout ms-1"></i>
+                        </a>
+                </form>
             </div>
             </div>
         </li>

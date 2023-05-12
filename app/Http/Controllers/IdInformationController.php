@@ -16,7 +16,7 @@ class IdInformationController extends Controller
     public function  store(Request $request)
     {
 
-        dd($request);
+        // dd($request);
         $form1Data = session('form1_data')->toArray();
         $request = IdInformation::create([
             'candidacy_applications_id' => $form1Data['id'],

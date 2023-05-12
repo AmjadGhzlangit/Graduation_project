@@ -2,10 +2,15 @@ To Do List :
 
 *add the validtion to id form and other form 
 ----------------------------------------------------
+*add when user sing in redirect to election_commission view
 *add midllewaer to election_commission 
 *show all data of the candidacy_application in election_commission view 
 *add button [OK , No] beside the candidacy_application 
-*make the side bar and all repeating parts dynamic (done)
+* create model and controller and migration for election_commission (done)
+*make the side bar and all repeating parts dynamic =>
+1-add form log out (done)
+2- put the name of user dynamic (done)
+3- 
 ---------------------
 *add midllewaer to candidacy_application and => [
 1-create column candidacy_application_status with false value

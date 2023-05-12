@@ -1,5 +1,5 @@
  <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+   
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
@@ -20,11 +20,10 @@
                     <img src="{{ asset('election_commission/images/faces/face28.png') }}" alt="image">
                     </div>
                     <div class="sidebar-profile-text">
-                    <p class="mb-1">Henry Klein</p>
+                    <div>{{ Auth::user()->name }}</div>
                     </div>
                 </div>
                 </div>
-                <div class="badge badge-danger">3</div>
             </div>
             </div>
         </li>
@@ -37,12 +36,27 @@
         </li>
         <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu">
-            <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+            <a class="nav-link"
+            href="{{ route('logout') }}" 
+            onclick="event.preventDefault();
+                this.closest('form').submit();"">
+                <i class="mdi mdi-logout menu-icon"></i>
                 <span class="menu-title">Log Out</span></a>
             </div>
+            </form>
         </li>
+        {{-- <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="route('logout')"
+                            onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            <span>Log Out</span>
+                            <i class="mdi mdi-logout ms-1"></i>
+                            </a>
+                    </form> --}}
         </ul>
     </nav>
 
     <!-- main-panel ends -->
-    </div>

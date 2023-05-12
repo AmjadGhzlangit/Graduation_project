@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CandidacyApplicationController;
+use App\Http\Controllers\ElectionCommissionController;
 use App\Http\Controllers\IdInformationController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfileController;
@@ -50,8 +51,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/form2',[ImageController::class,'store'])->name('processForm_two');
     });
 
+    Route::get('/index',[ElectionCommissionController::class,'index']);
     Route::view('/blank','election_commission.pages.blank-page')->name('blank');
-    Route::view('/index','election_commission.index');
+    // Route::view('/index','election_commission.index');
     Route::get('/admin',[AdminController::class,'index'])->middleware(['auth','is_admin']);
 require __DIR__.'/auth.php';
 
