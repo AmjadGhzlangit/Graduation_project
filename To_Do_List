@@ -1,8 +1,18 @@
 To Do List :
 
 *add the validtion to id form and other form 
-*add midllewaer to candidacy_application and
-
+----------------------------------------------------
+*add midllewaer to election_commission 
+*show all data of the candidacy_application in election_commission view 
+*add button [OK , No] beside the candidacy_application 
+*make the side bar and all repeating parts dynamic (done)
+---------------------
+*add midllewaer to candidacy_application and => [
+1-create column candidacy_application_status with false value
+2-I want when the election_commission is accepte this application the candidacy_application_status convert to true 
+3- 
+        ]
+------------------------
 *take the id information from user to id table 
 *make Route Group for admin with midllewaer  (done)
 *admin table ?

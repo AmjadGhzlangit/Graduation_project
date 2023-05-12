@@ -50,7 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/form2',[ImageController::class,'store'])->name('processForm_two');
     });
 
-    Route::view('/index','admin.index');
+    Route::view('/blank','election_commission.pages.blank-page')->name('blank');
+    Route::view('/index','election_commission.index');
     Route::get('/admin',[AdminController::class,'index'])->middleware(['auth','is_admin']);
 require __DIR__.'/auth.php';
 

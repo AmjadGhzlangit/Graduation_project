@@ -18,10 +18,9 @@
     <div>
       {{-- sidebar section --}}
     @include('election_commission.layouts.sidebar');
-      {{--End sidebar section --}}
-
+      <!-- page-body-wrapper ends -->
     </div>
     {{-- include js flie --}}
-    @include('election_commission.layouts.js')
+      @include('election_commission.layouts.js')
   </body>
 </html>

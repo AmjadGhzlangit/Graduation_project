@@ -14325,7 +14325,7 @@ dl {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh);
   background: #181824;
   font-family: "nunito-medium", sans-serif;
   padding: 0;
