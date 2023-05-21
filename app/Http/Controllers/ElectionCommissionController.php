@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\candidacy_application;
 use App\Models\election_commission;
+use App\Models\IdInformation;
+use App\Models\image;
 use Illuminate\Http\Request;
 
 class ElectionCommissionController extends Controller
@@ -13,9 +15,9 @@ class ElectionCommissionController extends Controller
      */
     public function index()
     {
-       $request =  candidacy_application::all();
+        $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
     //    dd($request);
-        return view('election_commission.index');
+        return view('election_commission.index',compact('candidacy_applications'));
     }
 
     /**
@@ -37,9 +39,11 @@ class ElectionCommissionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(election_commission $election_commission)
+    public function show(candidacy_application $candidacy_application)
     {
-        //
+        // dd($candidacy_application);
+        $images = image::all();
+        return view('election_commission.pages.blank-page',compact(['candidacy_application','images']));
     }
 
     /**
@@ -53,16 +57,22 @@ class ElectionCommissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, election_commission $election_commission)
+    public function update(candidacy_application $candidacy_application)
     {
-        //
+        $candidacy_application->status = true;
+        $candidacy_application->save();
+        
+        return redirect()->back()->with('success', 'User has been activated.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(election_commission $election_commission)
+    public function destroy(candidacy_application $candidacy_application)
     {
-        //
+        $candidacy_application->delete();
+        return redirect()->route('index')->with('success', 'User has been deleted.');
+
     }
 }

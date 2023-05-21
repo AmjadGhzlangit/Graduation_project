@@ -358,7 +358,7 @@
     </div>
         <!-- End Support Section -->
 
-    <script src="{{asset('js/main.js')}}></script>
+    <script src="{{asset('js/main.js')}}></script> 
 </body>
 
 </html>

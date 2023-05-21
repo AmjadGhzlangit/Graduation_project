@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('candidacy_applications_id')->constrained();
-            $table->string('font-img');
-            $table->string('back-img');
-            $table->string('registerWork-img');
-            $table->string('familyDocument-img');
-            $table->string('residenceDocument-img');
-            $table->string('education-img');
-            $table->string('convicationDocument-img');
-            $table->string('medicalExamination-img');
+            $table->foreignId('candidacy_application_id')->constrained();
+            $table->string('font_img');
+            $table->string('back_img');
+            $table->string('registerWork_img');
+            $table->string('familyDocument_img');
+            $table->string('residenceDocument_img');
+            $table->string('education_img');
+            $table->string('convicationDocument_img');
+            $table->string('medicalExamination_img');
             $table->timestamps();
         });
     }

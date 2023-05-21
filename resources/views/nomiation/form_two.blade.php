@@ -11,36 +11,36 @@
   <form method="POST" action="{{route('processForm_two')}}" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
-    <label for="font-img" class="block font-medium text-sm text-gray-700">Front Image</label>
-    <input type="file" name="font-img" class="form-control">
+    <label for="font_img" class="block font-medium text-sm text-gray-700">Front Image</label>
+    <input type="file" name="font_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="back-img">back-img</label>
-    <input type="file" name="back-img" class="form-control">
+    <label for="back_img">back Image</label>
+    <input type="file" name="back_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="registerWork-img">registerWork-img</label>
-    <input type="file" name="registerWork-img" class="form-control">
+    <label for="registerWork_img">registerWork image</label>
+    <input type="file" name="registerWork_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="familyDocument-img">familyDocument-img</label>
-    <input type="file" name="familyDocument-img" class="form-control">
+    <label for="familyDocument_img">familyDocument image</label>
+    <input type="file" name="familyDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="residenceDocument-img">residenceDocument-img</label>
-    <input type="file" name="residenceDocument-img" class="form-control">
+    <label for="residenceDocument_img">residenceDocument image</label>
+    <input type="file" name="residenceDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="education-img">education-img</label>
-    <input type="file" name="education-img" class="form-control">
+    <label for="education_img">education image</label>
+    <input type="file" name="education_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="convicationDocument-img">convicationDocument-img</label>
-    <input type="file" name="convicationDocument-img" class="form-control">
+    <label for="convicationDocument_img">convicationDocument-img</label>
+    <input type="file" name="convicationDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="medicalExamination-img">medicalExamination-img</label>
-    <input type="file" name="medicalExamination-img" class="form-control">
+    <label for="medicalExamination_img">medicalExamination-img</label>
+    <input type="file" name="medicalExamination_img" class="form-control">
   </div>
   <button type="submit" class="btn btn-primary">Save</button>
 

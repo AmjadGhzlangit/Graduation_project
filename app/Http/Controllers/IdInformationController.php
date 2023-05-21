@@ -19,7 +19,7 @@ class IdInformationController extends Controller
         // dd($request);
         $form1Data = session('form1_data')->toArray();
         $request = IdInformation::create([
-            'candidacy_applications_id' => $form1Data['id'],
+            'candidacy_application_id' => $form1Data['id'],
             'first_name'=>$request->input('first_name'),
             'last_name'=>$request->input('last_name'),
             'father_name'=>$request->input('father_name'),

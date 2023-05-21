@@ -22,14 +22,14 @@ class StoreImagesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'font-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'back-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'registerWork-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'familyDocument-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'residenceDocument-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'education-img' => 'required|image|max:2048|mimes:jpeg,png',
-            'convicationDocument-img' =>'required|image|max:2048|mimes:jpeg,png',
-            'medicalExamination-img' => 'required|image|max:2048|mimes:jpeg,png',
+            'font_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'back_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'registerWork_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'familyDocument_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'residenceDocument_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'education_img' => 'required|image|max:2048|mimes:jpeg,png',
+            'convicationDocument_img' =>'required|image|max:2048|mimes:jpeg,png',
+            'medicalExamination_img' => 'required|image|max:2048|mimes:jpeg,png',
         ];
     }
 }

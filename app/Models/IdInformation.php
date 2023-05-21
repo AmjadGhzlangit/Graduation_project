@@ -12,7 +12,7 @@ class IdInformation extends Model
     protected $table = 'id_information';
 
     protected $fillable = [
-        'candidacy_applications_id',
+        'candidacy_application_id',
         'first_name' , 
         'last_name',
         'father_name',

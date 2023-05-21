@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class candidacy_application extends Model
 {
         use HasFactory;
+        use SoftDeletes;
 
         protected $fillable = [
                 'election_program',
@@ -15,15 +17,16 @@ class candidacy_application extends Model
                 'education',
                 'category',
                 'address',
+                'status',
         ];
 
-        public function Id()
+        public function id_information()
         {
                 return $this->hasOne(IdInformation::class);
         }
 
         public function images()
         {
-                return $this->hasMany(candidacy_application::class);
+                return $this->hasOne(image::class);
         }
 }

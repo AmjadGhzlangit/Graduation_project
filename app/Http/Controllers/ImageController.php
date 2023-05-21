@@ -15,7 +15,6 @@ class ImageController extends Controller
     }
     public function store(StoreImagesRequest $request)
     {
-        
         $form1Data = session('form1_data')->toArray();
 
     // $fontImg = $request->file('font-img')->store('public/images');
@@ -43,7 +42,7 @@ class ImageController extends Controller
     //  return 'thank you';
 
     //this code is Do the same function but shorter
-    $attributes = ['font-img', 'back-img', 'registerWork-img', 'familyDocument-img', 'residenceDocument-img', 'education-img', 'convicationDocument-img', 'medicalExamination-img'];
+    $attributes = ['font_img', 'back_img', 'registerWork_img', 'familyDocument_img', 'residenceDocument_img', 'education_img', 'convicationDocument_img', 'medicalExamination_img'];
 
         $data = [];
         foreach ($attributes as $attribute) {
@@ -52,8 +51,8 @@ class ImageController extends Controller
             $data[$attribute] = $path;
         }
 
-        $data['candidacy_applications_id'] = $form1Data['id'];
-        $image = Image::create($data);
+        $data['candidacy_application_id'] = $form1Data['id'];
+        Image::create($data);
 
         session()->forget('form1_data');
         return 'thank you';

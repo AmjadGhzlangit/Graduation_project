@@ -16,19 +16,54 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Profile</th>
-                          <th>VatNo.</th>
-                          <th>Created</th>
+                          <th>Number of Application</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Father Name</th>
+                          <th>Mother Name</th>
+                          <th>Birthday</th>
+                          <th>Eduction</th>
+                          <th>Election Program</th>
+                          <th>Category</th>
                           <th>Status</th>
+                          <th>Option</th>
                         </tr>
                       </thead>
+                      
                       <tbody>
-                        <tr>
-                          <td>Jacob</td>
-                          <td>53275531</td>
-                          <td>12 May 2017</td>
-                          <td><label class="badge badge-danger">Pending</label></td>
+                        @foreach ($candidacy_applications as $candidacy_application)
+                        <tr style="text-align: center">
+                          <td>{{$candidacy_application->id}}</td>
+                          <td>{{$candidacy_application->id_information->first_name}}</td>
+                          <td>{{$candidacy_application->id_information->last_name}}</td>
+                          <td>{{$candidacy_application->id_information->father_name}}</td>
+                          <td>{{$candidacy_application->id_information->mother_name}}</td>
+                          <td>{{$candidacy_application->id_information->birthday}}</td>
+                          <td>{{$candidacy_application->education}}</td>
+                          <td>{{$candidacy_application->election_program}}</td>
+                          <td>{{$candidacy_application->category}}</td>
+                          <td>
+                            @if($candidacy_application->status){
+                              <label class="badge badge-success">Accept</label>
+                            }
+                            @else
+                            {
+                              <label class="badge badge-danger">Not Accecpt</label>
+                            }
+                            @endif
+                          </td>
+                            <td>
+                              <a href="{{route('blank',$candidacy_application)}}">Read more →</a>
+
+                              {{-- {{$candidacy_application->id}} --}}
+                            </td>
                         </tr>
+                        @endforeach
+                      {{-- <td>  
+                              <a class="btn btn-secondary" href="{{route('blank'),($candidacy_application->id)}}">
+                                Read More
+                              </a>
+                          </td> --}}
                       </tbody>
                     </table>
                   </div>

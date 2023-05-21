@@ -2,20 +2,24 @@ To Do List :
 
 *add the validtion to id form and other form 
 ----------------------------------------------------
+                        election_commission
 *add when user sing in redirect to election_commission view
 *add midllewaer to election_commission 
-*show all data of the candidacy_application in election_commission view 
-*add button [OK , No] beside the candidacy_application 
+*show all data of the candidacy_application in election_commission view (done)
+*add button [OK , No] beside the candidacy_application (done)
 * create model and controller and migration for election_commission (done)
-*make the side bar and all repeating parts dynamic =>
+*make the side bar and all repeating parts dynamic =>[
 1-add form log out (done)
 2- put the name of user dynamic (done)
-3- 
+3- show the massage in blade when candidacy_application accepted or not ]
+
+** edit when the image path store in data base it is store as orginal image name
 ---------------------
+                        candidacy_application
 *add midllewaer to candidacy_application and => [
-1-create column candidacy_application_status with false value
-2-I want when the election_commission is accepte this application the candidacy_application_status convert to true 
-3- 
+1-create column candidacy_application_status with false value (done)
+2-I want when the election_commission is accepte this application the candidacy_application_status convert to true (done)
+3- when user is finsh the application redirect to page with masseg said ('تم تقديم طلبك بنجاح الرجاء الانتظار حيثما يتم قبول الطلب')
         ]
 ------------------------
 *take the id information from user to id table 

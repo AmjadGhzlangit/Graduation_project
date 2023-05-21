@@ -8,19 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class image extends Model
 {
     use HasFactory;
-    protected $table = 'images';
 
-    protected $fillable = [ 'candidacy_applications_id',
-                            'font-img',
-                            'back-img',
-                            'registerWork-img',
-                            'familyDocument-img',
-                            'residenceDocument-img',
-                            'education-img',
-                            'convicationDocument-img',
-                            'medicalExamination-img'
+    protected $fillable = [ 'candidacy_application_id',
+                            'font_img',
+                            'back_img',
+                            'registerWork_img',
+                            'familyDocument_img',
+                            'residenceDocument_img',
+                            'education_img',
+                            'convicationDocument_img',
+                            'medicalExamination_img'
                         ];
-    public function candidacy_application()
+    public function Candidcy_Appliction ()
     {
         return $this->belongsTo(candidacy_application::class);
     }
