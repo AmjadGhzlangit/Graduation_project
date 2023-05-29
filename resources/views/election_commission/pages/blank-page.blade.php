@@ -40,8 +40,10 @@
                         <td>{{$candidacy_application->id_information->birthday}}</td>
                         <td>{{$candidacy_application->education}}</td>
                         <td>{{$candidacy_application->election_program}}</td>
-                        {{-- <td>{{$candidacy_application->images->font_img}}</td> --}}
-                        <td><label class="badge badge-danger">{{$candidacy_application->status}}</td>
+                        <td>
+                            <label class="badge badge-danger">
+                            {{$candidacy_application->status}}
+                        </td>
                         <form action="{{route('active',$candidacy_application)}}" method="POST">
                             @csrf
                             @method('PUT')

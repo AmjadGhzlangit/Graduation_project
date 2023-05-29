@@ -13,18 +13,23 @@ To Do List :
 2- put the name of user dynamic (done)
 3- show the massage in blade when candidacy_application accepted or not ]
 
-** edit when the image path store in data base it is store as orginal image name
+** edit when the image path store in data base it is store as original image name
 ---------------------
                         candidacy_application
 *add midllewaer to candidacy_application and => [
 1-create column candidacy_application_status with false value (done)
 2-I want when the election_commission is accepte this application the candidacy_application_status convert to true (done)
-3- when user is finsh the application redirect to page with masseg said ('تم تقديم طلبك بنجاح الرجاء الانتظار حيثما يتم قبول الطلب')
-        ]
+3- when user is finsh the application redirect to page with masseg said ('تم تقديم طلبك بنجاح الرجاء الانتظار حيثما يتم قبولaccepted)
+4- عندما يتم قبول او رفض الطلب يرسل ايميل للمستخدم 
+        
+]
 ------------------------
-*take the id information from user to id table 
-*make Route Group for admin with midllewaer  (done)
-*admin table ?
-*إضافة ادمن آخر للنظام  فكرة للنقاش
-
+* take the id information from user to id table 
+* make Route Group for admin with midllewaer  (done)
+* admin table ?
+* إضافة ادمن آخر للنظام  فكرة للنقاش
+---------------------------------------------------------------------
+                            Admin
+* Add election_commission infromations (done)
+* 
 

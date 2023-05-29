@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -12,6 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        
         return view('admin.index');
     }
 
@@ -20,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.form');
     }
 
     /**
@@ -28,7 +31,18 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $user = User::create([
+            'name'=>$request->input('first_name'),
+            'last_name'=>$request->input('last_name'),
+            'id_number'=>$request->input('id_number'),
+            'phone_number'=>$request->input('phone_number'),
+            'email'=>$request->input('email'),
+            'is_admin' => $request->input('is_admin'),
+            'password' => Hash::make($request->password),
+        ]);
+        $user->save() ; 
+        return redirect()->route('adm.index');
     }
 
     /**

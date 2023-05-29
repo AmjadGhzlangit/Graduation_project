@@ -3,6 +3,3 @@
 @section('content')
 
 @endsection
-
-
-  

@@ -50,13 +50,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/form2',[ImageController::class,'create'])->name('form_two');
     Route::post('/form2',[ImageController::class,'store'])->name('processForm_two');
     });
-    
     Route::get('/index',[ElectionCommissionController::class,'index'])->name('index');
     Route::get('/blank/{candidacy_application}',[ElectionCommissionController::class,'show'])->name('blank');
     Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
     Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
     
-    Route::get('/admin',[AdminController::class,'index'])->middleware(['auth','is_admin']);
+// Route::get('/admi',[AdminController::class,'index']);
+Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
+Route::resource('adm',AdminController::class);
+  
+    // ->middleware(['auth','is_admin']);
 require __DIR__.'/auth.php';
 
 
