@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,8 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.index');
+        $messages= Message::all();   
+        return view('admin.index',compact('messages'));
     }
 
     /**

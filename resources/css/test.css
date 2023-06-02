@@ -189,6 +189,11 @@ background-color: #fafafa;
 .header .main-nav > li > a:hover::before {
 left: 0;
 }
+.box_election{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 /* End Header Section  */
 /* Start Landing section  */
 .landing{
@@ -830,3 +835,40 @@ opacity: 0;
   }
 }
 /* End Animation  */
+/* The dialog box styles */
+#dialog-box {
+  display: none;
+  position: fixed;
+  width: 279px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 9999;
+}
+
+#dialog-message {
+  margin-bottom: 10px;
+}
+
+#dialog-buttons {
+  text-align: center;
+}
+
+#dialog-buttons button {
+  margin-right: 40px;
+  padding: 6px 14px;
+  border: 2px solid gray;
+}
+
+/* The button styles */
+#election-btn {
+  padding: 10px 20px;
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

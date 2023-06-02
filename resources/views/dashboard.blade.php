@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/all.css'); }} ">
     <!-- Main Css File  -->
     <link rel="stylesheet" href="{{ URL::asset('css/test.css'); }} ">
+    {{-- BootStrap --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +25,13 @@
 </head>
 
 <body>
+    @if(session('success'))
+    <div class="alert alert-success">
+        <span class="container" >
+        {{ session('success') }}
+    </span>
+    </div>
+@endif
     <div class="landing">
         <div class="container">
             <div class="text">
@@ -196,18 +205,21 @@
             <p>سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
             </p>
         </div>
+      
         <div class="container mt-5">
+            @foreach ($candidacy_applications as $candidacy_application)
             <div class="box">
                 <img decoding="async" src="{{ URL::asset('images/cat-01.jpg'); }}" alt="" />
                 <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
+                    <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
+                    <p>{{ $candidacy_application->election_program }}</p>
                 </div>
                 <div class="info">
-                    <a href="">Read More</a>
+                    <a href="{{ route('show_election',$candidacy_application) }}">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
+            @endforeach
             <div class="box">
                 <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
                 <div class="content">
@@ -346,12 +358,12 @@
     <div class="form">
         <div class="content">
         <h2>تواصل معنا</h2>
-        <form action="">
-            <input class="input" type="text" placeholder="Your Name" name="name" />
-            <input class="input" type="email" placeholder="Your Email" name="email" />
-            <input class="input" type="text" placeholder="Your Phone" name="mobile" />
-            <textarea class="input" placeholder="Tell Us About Your Needs" name="message"></textarea>
-            <input type="submit" value="Send" />
+        <form action="{{ route('messages.store')}}" method="post">
+            @csrf
+            <input class="input" type="text" placeholder="Your Name" name="name" >
+            <input class="input" type="email" placeholder="Your Email" name="email" >
+            <textarea class="input" type="text" placeholder="Tell Us About Your Needs" name="message"></textarea>
+            <input type="submit" value="Send" >
         </form>
         </div>
     </div>
@@ -360,7 +372,9 @@
 
     <script src="{{asset('js/main.js')}}></script> 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
 
 

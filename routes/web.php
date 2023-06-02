@@ -6,6 +6,7 @@ use App\Http\Controllers\CandidacyApplicationController;
 use App\Http\Controllers\ElectionCommissionController;
 use App\Http\Controllers\IdInformationController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MessageeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,14 +22,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // When User open the web site the main page 
-Route::get('/', function () {
-    return view('test');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
+Route::get('/',[CandidacyApplicationController::class,'show'])->name('show_dashboard');
+Route::get('/dashboard',[CandidacyApplicationController::class,'show'])->name('show_dashboard');
 
+Route::post('/messages', [MessageeController::class, 'store'])->name('messages.store');
+Route::post('/messages/{message}', [MessageeController::class, 'delete'])->name('messages.delete');
 
-
-
+Route::get('election/{candidacy_application}',[CandidacyApplicationController::class,'show_data'])->name('show_election');
 
 Route::get('/update_password', function () {
     return view('profile.partials.update-password-form');

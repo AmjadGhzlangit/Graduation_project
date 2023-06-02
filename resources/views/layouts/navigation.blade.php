@@ -26,11 +26,11 @@
             
             <div class="logo">
                 <!-- <a href="#  ">Electronic Elections</a> -->
-                <a href="{{ route('dashboard') }}">بوابة الانتخابات</a>
+                <a href="{{ route('show_dashboard') }}">بوابة الانتخابات</a>
             </div>
             
             <ul class="main-nav">
-                <li><a href="{{ route('dashboard') }}">الرئسية</a></li>
+                <li><a href="{{ route('show_dashboard') }}">الرئسية</a></li>
                 <li><a href="#candidates">المرشحين</a></li>
                 <li><a href="#">الانتخابات</a></li>
                 <li><a href="#about">من نحن</a></li>

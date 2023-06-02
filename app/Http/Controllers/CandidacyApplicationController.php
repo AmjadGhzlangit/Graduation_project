@@ -14,6 +14,12 @@ class CandidacyApplicationController extends Controller
         return view('nomiation.form_one');
     }
 
+    public function show()
+    {
+        $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
+        return view('dashboard',compact('candidacy_applications'));
+    }
+
     public function store(Request $request)
     {
         // dd($request);
@@ -27,5 +33,16 @@ class CandidacyApplicationController extends Controller
         ]);
         session(['form1_data' => $request]);
         return redirect()->route('id_form');
+    }
+
+    public function show_data(candidacy_application $candidacy_application)
+    {
+        // $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
+        return view('election',compact('candidacy_application'));
+    }
+
+    public function update()
+    {
+        
     }
 }

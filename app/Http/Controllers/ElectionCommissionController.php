@@ -20,6 +20,11 @@ class ElectionCommissionController extends Controller
         return view('election_commission.index',compact('candidacy_applications'));
     }
 
+    // public function show_data()
+    // {
+    //     $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
+    //     return view('dashboard',compact('candidacy_applications'));
+    // }
     /**
      * Show the form for creating a new resource.
      */
