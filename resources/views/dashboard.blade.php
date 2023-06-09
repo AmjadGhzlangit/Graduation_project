@@ -217,18 +217,20 @@
         </div>
         <div class="container mt-5"> 
             @foreach($candidacy_applications as $candidacy_application)  
-           
-           
+
             @if($candidacy_application->status == 1)
             <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-01.jpg'); }}" alt="" />
+                <img  src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" width="600px" height="348px" />
                 <div class="content">
                     
                     <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
-                    <p>{{ $candidacy_application->election_program }}</p>
-                    
-                    <p>{{ $candidacy_application->votes}}</p>
-                   
+                    <h6> البرنامج الانتخابي
+                    <p> {{ $candidacy_application->election_program }} </p>
+                </h6>
+                    <h4 class="text-center">
+                        
+                    <p> Votes : {{ $candidacy_application->votes}}</p>
+                </h4>
                 </div>
                 <div class="info">
                     <a href="{{ route('show_election',$candidacy_application) }}">Read More</a>

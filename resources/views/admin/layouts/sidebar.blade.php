@@ -37,6 +37,16 @@
                     <span class="menu-title">Add Election</span>
                 </a>
                 </div>
+            <div class="sidebar-user-menu">
+                <a href="{{ route('news.create') }}" class="nav-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    <span class="menu-title">Add News</span>
+                </a>
+                </div>
+            <div class="sidebar-user-menu">
+                <a href="{{ route('news.index') }}" class="nav-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    <span class="menu-title">Show News</span>
+                </a>
+                </div>
         </li>
         <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu">

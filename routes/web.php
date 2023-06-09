@@ -6,6 +6,7 @@ use App\Http\Controllers\ElectionCommissionController;
 use App\Http\Controllers\IdInformationController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Requests\IdInformationRequset;
 use Illuminate\Support\Facades\Route;
@@ -59,11 +60,15 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
     Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
     
-// Route::get('/admi',[AdminController::class,'index']);
+
+
+    // Route::get('/admi',[AdminController::class,'index']);
 Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
 Route::resource('adm',AdminController::class);
   
     // ->middleware(['auth','is_admin']);
+
+Route::resource('news',NewsController::class);
 require __DIR__.'/auth.php';
 
 

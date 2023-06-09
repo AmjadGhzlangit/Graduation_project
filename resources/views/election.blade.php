@@ -29,15 +29,13 @@
         {{-- put the image here  --}}
         <div class="container">
             <div class="box box_election">
-                <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" width="400px" height="400" style="margin-bottom: 10px" />
+                <img decoding="async" src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" alt="" width="150px" height="150px" style="margin-bottom: 10px" />
+
                 <div class="content">
                     <h3 class="info"> Name: {{ $candidacy_application->id_information->first_name }} {{ $candidacy_application->id_information->last_name }}</h3>
                     <p>Election Program : {{ $candidacy_application->election_program }}</p>
                     <h5> Category : {{ $candidacy_application->category }}</h5>
 
-                    {{-- <a class="btn btn-success" href="#" id="election-btn" style="margin-right: 15px">
-                        Election Now !
-                    </a> --}}
                     <div id="dialog-box">
                         <div id="dialog-message"></div>
                         <div id="dialog-buttons">
@@ -53,7 +51,7 @@
                     
                     <!-- The button that triggers the dialog box -->
                     <button id="election-btn">Election Now !</button>
-                    <a class="btn btn-secondary" href="#">
+                    <a class="btn btn-secondary" href="/">
                         Return Back
                       </a>
                 </div>

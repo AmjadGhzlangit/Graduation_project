@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+       $news = News::all();
+       return view('admin.pages.news.news_index',compact('news'));
     }
 
     /**
@@ -20,7 +22,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.news.news_form');
     }
 
     /**
@@ -28,7 +30,17 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $imagePath = $request->file('image_path')->store('news_images','news');
+
+         News::create([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'image_path'=>$request->file('image_path')->store('images','public'),
+          
+    ]);
+    
+
+        return redirect()->route('news.index')->with('message','News Added successfully');
     }
 
     /**
@@ -36,7 +48,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        
     }
 
     /**
@@ -60,6 +72,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        $news->delete();
+        return redirect()->back()->with('message','News has been deleted');
     }
 }

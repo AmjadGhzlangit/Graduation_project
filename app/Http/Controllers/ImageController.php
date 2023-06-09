@@ -47,7 +47,7 @@ class ImageController extends Controller
         $data = [];
         foreach ($attributes as $attribute) {
             $file = $request->file($attribute);
-            $path = $file->store('public/images');
+            $path = $file->store('candidacy','public');
             $data[$attribute] = $path;
         }
 

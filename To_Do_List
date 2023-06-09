@@ -33,4 +33,11 @@ To Do List :
 * Add election_commission infromations (done)
 * Add another Admin 
 * Add the messages function (done) and mail for that ()
-
+* News {
+    - icon for news (done)
+    - form to add news (done)
+    - page for show news and option  (done)
+    - edit news 
+    - delete news (done)
+    - validition with NewsRequest 
+}

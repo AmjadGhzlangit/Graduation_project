@@ -25,14 +25,15 @@
                         <th>Eduction</th>
                         <th>Election Program</th>
                         <th>Category</th>
-                        <th>Status</th>
-                        <th>Option</th>
+                        <th>Gender</th>
+                        
+                        <th>address</th>
                     </tr>
                     </thead>
                     
                     <tbody>
                     <tr style="text-align: center">
-                        <td>{{$candidacy_application->images->font_img}}</td>
+                        <td>{{$candidacy_application->id}}</td>
                         <td>{{$candidacy_application->id_information->first_name}}</td>
                         <td>{{$candidacy_application->id_information->last_name}}</td>
                         <td>{{$candidacy_application->id_information->father_name}}</td>
@@ -41,9 +42,15 @@
                         <td>{{$candidacy_application->education}}</td>
                         <td>{{$candidacy_application->election_program}}</td>
                         <td>
-                            <label class="badge badge-danger">
-                            {{$candidacy_application->status}}
+                            {{$candidacy_application->category}}
                         </td>
+                        <td>
+                            {{$candidacy_application->id_information->gender}}
+                        </td>
+                        <td>
+                            {{$candidacy_application->address}}
+                        </td>
+                        <div class="d-inline">
                         <form action="{{route('active',$candidacy_application)}}" method="POST">
                             @csrf
                             @method('PUT')
@@ -52,6 +59,7 @@
                                 Accept Application
                         </button>                       
                     </form>
+                </div>
                     <form action="{{route('destroy',$candidacy_application)}}" method="POST">
                             @csrf
                             @method('PUT')
@@ -68,10 +76,54 @@
             </div>
         </div>
         <div>
-            <img src="{{ asset('storage/images/'. '/' .$candidacy_application->images->font_img)}}" width="100px" height="100px" alt="Image"> 
-            <img src="{{ url($candidacy_application->images->font_img) }}" width="100px" height="100px" alt="Image">  
+         <div class="row">
+            <div class="col-3">
+            <a href="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <div class="col-3">
+            <a href="{{ asset('app/public/'.$candidacy_application->images->back_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->back_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <div class="col-3">
+            <a href="{{ asset('app/public/'.$candidacy_application->images->registerWork_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->registerWork_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <div class="col-3">
+            <a href="{{ asset('app/public/'.$candidacy_application->images->familyDocument_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->familyDocument_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+             <div class="col-3">
+             <a href="{{ asset('app/public/'.$candidacy_application->images->residenceDocument_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->residenceDocument_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <div class="col-3">
+             <a href="{{ asset('app/public/'.$candidacy_application->images->education_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->education_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <div class="col-3">
+             <a href="{{ asset('app/public/'.$candidacy_application->images->convicationDocument_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->convicationDocument_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
+            <br>
+           
+            <div class="col-3">
+             <a href="{{ asset('app/public/'.$candidacy_application->images->medicalExamination_img)}}" target="_blank">
+                <img src="{{ asset('app/public/'.$candidacy_application->images->medicalExamination_img)}}" width="250px" height="250px" alt="Image">
+                </a>
+            </div>
         
-            <img src="{{  $candidacy_application->images->font_img }}" width="100px" height="100px" alt="Image"></div>
+        </div>
         </div>
     </div>
 @endsection
