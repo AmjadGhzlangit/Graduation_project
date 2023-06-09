@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\candidacy_application;
 use App\Models\image;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class CandidacyApplicationController extends Controller
@@ -46,11 +48,20 @@ class CandidacyApplicationController extends Controller
         return view('election',compact('candidacy_application'));
     }
 
-    public function update(candidacy_application $candidacy_application)
+    public function update(candidacy_application $candidacy_application, Request $request)
     {
+        
+        if(Auth::user()->has_voted == 0){
+            
        $candidacy_application->votes+=1;
+       $user = Auth::user();
+        $user->has_voted = true;
+        $user->save();
        $candidacy_application->save();
-
-       return Redirect()->route('show_dashboard',compact('candidacy_application'));
+       return Redirect()->route('show_dashboard',compact('candidacy_application'))
+       ->with('massage','تم التصويت للمرشح , شكرا لك');
+    }
+       return Redirect()->route('show_dashboard',compact('candidacy_application'))
+       ->with('massage',' نحن نعتذر و لكنك قمت بالتصويت من قبل' );
     }
 }

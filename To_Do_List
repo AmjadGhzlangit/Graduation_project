@@ -11,7 +11,7 @@ To Do List :
 *make the side bar and all repeating parts dynamic =>[
 1-add form log out (done)
 2- put the name of user dynamic (done)
-3- show the massage in blade when candidacy_application accepted or not ]
+3- show the massage in blade when candidacy_application accepted or not(done) ]
 
 ** edit when the image path store in data base it is store as original image name
 ---------------------
@@ -32,5 +32,5 @@ To Do List :
                             Admin
 * Add election_commission infromations (done)
 * Add another Admin 
-* Add the messages function and mail for that 
+* Add the messages function (done) and mail for that ()
 

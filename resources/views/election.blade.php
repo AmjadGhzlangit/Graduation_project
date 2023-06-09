@@ -43,7 +43,7 @@
                         <div id="dialog-buttons">
                             <form  action="{{ route('update_votes',$candidacy_application) }}" method="POST">
                                 @csrf
-                               
+                                <input type="hidden" name="has_voted" value="false">
                                 <button id="dialog-yes" type="submit">Yes</button>
                                 
                             </form>
@@ -53,20 +53,6 @@
                     
                     <!-- The button that triggers the dialog box -->
                     <button id="election-btn">Election Now !</button>
-{{--                     
-                    <script>
-                        var electionBtn = document.getElementById("election-btn");
-                    
-                        electionBtn.addEventListener("click", function() {
-                            var confirmMsg = "Are you sure you want to start the election?";
-                            if (confirm(confirmMsg)) {
-                                // The user clicked "OK", continue with the election process
-                                // Add your code here to initiate the election
-                            } else {
-                                // The user clicked "Cancel", do nothing
-                            }
-                        });
-                    </script> --}}
                     <a class="btn btn-secondary" href="#">
                         Return Back
                       </a>

@@ -26,12 +26,20 @@
 
 <body>
     @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success text-center">
         <span class="container" >
         {{ session('success') }}
     </span>
     </div>
-@endif
+    @endif
+
+    @if (session('massage'))
+    <div class="alert alert-success text-center">
+        <span class="container" >
+        {{ session('massage') }}
+    </span>
+    </div>
+    @endif
     <div class="landing">
         <div class="container">
             <div class="text">
