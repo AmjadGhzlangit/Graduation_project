@@ -31,8 +31,8 @@
             
             <ul class="main-nav">
                 <li><a href="{{ route('show_dashboard') }}">الرئسية</a></li>
-                <li><a href="#candidates">المرشحين</a></li>
-                <li><a href="#">الانتخابات</a></li>
+                <li><a href="#candidates">الانتخابات</a></li>
+                <li><a href="#events">اخر الاخبار</a></li>
                 <li><a href="#about">من نحن</a></li>
                 @guest
                 <li>

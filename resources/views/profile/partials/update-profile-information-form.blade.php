@@ -17,9 +17,9 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 space-x-6 grid grid-cols-3 gap-6 container">
+    <form method="post" action="{{ route('user.update') }}" class="mt-6 space-y-6 space-x-6 grid grid-cols-3 gap-6 container">
         @csrf
-        @method('PUT')
+        @method('POST')
         {{-- id number  --}}
         <div>
             <x-input-label for="id_number" :value="__('Nation_Id_number')" />

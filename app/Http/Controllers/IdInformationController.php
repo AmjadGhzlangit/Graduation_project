@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\candidacy_application;
+use App\Models\Id_Information;
 use App\Models\IdInformation;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,9 @@ class IdInformationController extends Controller
 
         // dd($request);
         $form1Data = session('form1_data')->toArray();
-        $request = IdInformation::create([
+        $request = Id_Information::create([
             'candidacy_application_id' => $form1Data['id'],
+            'user_id' => $form1Data['id'],
             'first_name'=>$request->input('first_name'),
             'last_name'=>$request->input('last_name'),
             'father_name'=>$request->input('father_name'),
@@ -31,6 +33,11 @@ class IdInformationController extends Controller
             'number_registration'=>$request->input('number_registration'),
         ]);
         return redirect()->route('form_two');
+    }
+
+    public function updata_user(Request $request)
+    {
+        dd($request);
     }
 }
 

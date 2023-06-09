@@ -31,8 +31,8 @@
     <label>categories</label>
     <select id="category" name="category" class="form-control mt-1 block w-full rounded-lg py-2 ">
             <option selected>Choose Category</option>
-            <option value="A">أ</option>
-            <option value="B">ب</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Next</button>

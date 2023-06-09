@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\candidacy_application;
 use App\Models\image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CandidacyApplicationController extends Controller
 {
@@ -17,7 +18,11 @@ class CandidacyApplicationController extends Controller
     public function show()
     {
         $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
+        if($candidacy_applications)
+        {
         return view('dashboard',compact('candidacy_applications'));
+        }
+        return view('dashboard');
     }
 
     public function store(Request $request)
@@ -41,8 +46,11 @@ class CandidacyApplicationController extends Controller
         return view('election',compact('candidacy_application'));
     }
 
-    public function update()
+    public function update(candidacy_application $candidacy_application)
     {
-        
+       $candidacy_application->votes+=1;
+       $candidacy_application->save();
+
+       return Redirect()->route('show_dashboard',compact('candidacy_application'));
     }
 }

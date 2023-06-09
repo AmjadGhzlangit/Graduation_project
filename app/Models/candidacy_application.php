@@ -18,11 +18,12 @@ class candidacy_application extends Model
                 'category',
                 'address',
                 'status',
+                'votes'
         ];
 
         public function id_information()
         {
-                return $this->hasOne(IdInformation::class);
+                return $this->hasOne(Id_Information::class);
         }
 
         public function images()

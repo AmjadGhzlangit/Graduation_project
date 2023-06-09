@@ -16,7 +16,7 @@
 
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 space-x-6 grid grid-cols-3 gap-6 container">
         @csrf
-        @method('patch')
+        {{-- @method('put') --}}
         {{-- Pleace of Registion  --}}
         <div>
             <x-input-label for="pleace_registion" :value="__('Pleace Registion')" />

@@ -200,106 +200,37 @@
 
     <div class="latest-news" id="candidates">
         <h2 class="main-title font-bold  hover:bg-blue-500">ساحة الانتخابات</h2>
+        
         <div class="text">
             <h1 class="font-bold mb-5">المرشحين</h1>
             <p>سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
             </p>
+            
         </div>
-      
-        <div class="container mt-5">
-            @foreach ($candidacy_applications as $candidacy_application)
+        <div class="container mt-5"> 
+            @foreach($candidacy_applications as $candidacy_application)  
+           
+           
+            @if($candidacy_application->status == 1)
             <div class="box">
                 <img decoding="async" src="{{ URL::asset('images/cat-01.jpg'); }}" alt="" />
                 <div class="content">
+                    
                     <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
                     <p>{{ $candidacy_application->election_program }}</p>
+                    
+                    <p>{{ $candidacy_application->votes}}</p>
+                   
                 </div>
                 <div class="info">
                     <a href="{{ route('show_election',$candidacy_application) }}">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
-            </div>
-            @endforeach
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-04.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-05.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-06.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-07.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-08.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="spikes"></div>
+            @endif
+           
+                    @endforeach
+            </div>              
+         </div>
     <!-- End Candidates section  -->
 
     <!-- Start Events -->

@@ -49,7 +49,7 @@
                             @method('PUT')
                         <button type="submit"
                                 class="btn btn-success">
-                                
+                                Accept Application
                         </button>                       
                     </form>
                     <form action="{{route('destroy',$candidacy_application)}}" method="POST">
@@ -68,8 +68,10 @@
             </div>
         </div>
         <div>
-            <img 
-src="{{ asset('storage/images/' .$candidacy_application->images->back_img)}}" width="100px" height="100px" alt="Image">        </div>
+            <img src="{{ asset('storage/images/'. '/' .$candidacy_application->images->font_img)}}" width="100px" height="100px" alt="Image"> 
+            <img src="{{ url($candidacy_application->images->font_img) }}" width="100px" height="100px" alt="Image">  
+        
+            <img src="{{  $candidacy_application->images->font_img }}" width="100px" height="100px" alt="Image"></div>
         </div>
     </div>
 @endsection

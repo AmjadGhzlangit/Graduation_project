@@ -31,6 +31,10 @@ class User extends Authenticatable
         'is_admin',
     ];
 
+        public function id_information()
+        {
+            return $this->hasOne(Id_Information::class);
+        }
     /**
      * The attributes that should be hidden for serialization.
      *

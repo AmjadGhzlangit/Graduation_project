@@ -64,10 +64,11 @@ class ElectionCommissionController extends Controller
      */
     public function update(candidacy_application $candidacy_application)
     {
+        
         $candidacy_application->status = true;
         $candidacy_application->save();
         
-        return redirect()->back()->with('success', 'User has been activated.');
+        return redirect()->route('index')->with('success', 'User has been activated.');
 
     }
 

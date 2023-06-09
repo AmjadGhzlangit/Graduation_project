@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('education')->nullable();
             $table->string('category')->nullable();
             $table->string('address')->nullable();
+            $table->integer('votes')->nullable()->default(0);
             $table->timestamps();
         });
     }

@@ -41,8 +41,9 @@
                     <div id="dialog-box">
                         <div id="dialog-message"></div>
                         <div id="dialog-buttons">
-                            <form  action="#" method="POST">
+                            <form  action="{{ route('update_votes',$candidacy_application) }}" method="POST">
                                 @csrf
+                               
                                 <button id="dialog-yes" type="submit">Yes</button>
                                 
                             </form>
