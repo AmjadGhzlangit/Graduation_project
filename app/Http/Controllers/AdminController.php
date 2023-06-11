@@ -49,9 +49,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Admin $admin)
+   
+    public function login()
     {
-        //
+        return view('auth.admin_login');
     }
 
     /**

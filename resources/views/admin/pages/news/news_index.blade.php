@@ -35,9 +35,16 @@
                         <td>{{ $one_news->title }}</td>
                         <td>{{ $one_news->description }}</td>
                         <td><img src="{{ asset('app/public/'.$one_news->image_path) }}" alt="" width="30px" height="30px"></td>
-                        <td><a class="btn btn-success" href="#">
-                            edit
-                          </a>
+                        <td>
+                          <form action="{{ route('news.show', $one_news->id) }}" method="GET">
+                            @csrf
+                         
+                        <input type="submit" class="btn btn-success" value="Edit">
+                      </form>
+                      
+                      {{-- <a class="btn btn-success"  href=""{{ route('news.show',$one_news->id) }}>
+                            Edit
+                          </a> --}}
                         </td>
                         <td>
                             <form action="{{ route('news.destroy', $one_news->id) }}" method="POST">

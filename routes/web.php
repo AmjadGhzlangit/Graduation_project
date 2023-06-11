@@ -9,7 +9,11 @@ use App\Http\Controllers\MessageeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Requests\IdInformationRequset;
+use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +25,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/email', function () {
+    Mail::to('amjadghzlangit@gmail.com')->send(new TestEmail);
+    return view('dashboard');
+});
+
 
 // When User open the web site the main page 
 Route::get('/',[CandidacyApplicationController::class,'show'])->name('show_dashboard');
@@ -34,7 +43,7 @@ Route::get('/update_password', function () {
             return view('profile.partials.update-password-form');
         })->name('update');
 
-        Route::get('/dashboard', function () {
+Route::get('/dashboard', function () {
             return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -52,6 +61,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/form2',[ImageController::class,'create'])->name('form_two');
     Route::post('/form2',[ImageController::class,'store'])->name('processForm_two');
     Route::post('/update/{candidacy_application}',[CandidacyApplicationController::class,'update'])->name('update_votes');
+
+    Route::view('/response','nomiation.response_page');
+
     });
 
 
@@ -60,15 +72,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
     Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
     
-
-
+    
+    Route::get('/admin/login', [AdminController::class,'login']);
     // Route::get('/admi',[AdminController::class,'index']);
 Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
-Route::resource('adm',AdminController::class);
+Route::resource('adm',AdminController::class)->middleware('is_admin');
   
     // ->middleware(['auth','is_admin']);
 
 Route::resource('news',NewsController::class);
+// Route::post('/search',[CandidacyApplicationController::class,'search'])->name('search');
+Route::post('/search/index', [CandidacyApplicationController::class, 'search'])->name('search.index');
 require __DIR__.'/auth.php';
 
 

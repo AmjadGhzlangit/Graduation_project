@@ -1,4 +1,3 @@
-{{-- parent layout file named app.blade.php that defines the basic structure of your website, with a header, a main content area, and a footer. The app.blade.php file might look something like this: --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -29,11 +28,11 @@
                     </div>
                 </header>
             @endif
-            <!-- Page Content aaaaaa -->
             <div>
                 @yield('content')
             </div>
         </div>
+
         <div>
         @include('layouts.footer')
 

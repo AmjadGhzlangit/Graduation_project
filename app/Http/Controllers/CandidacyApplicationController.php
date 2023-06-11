@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\candidacy_application;
 use App\Models\image;
+use App\Models\News;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,12 @@ class CandidacyApplicationController extends Controller
     public function show()
     {
         $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
+        $news = News::all();
         if($candidacy_applications)
         {
-        return view('dashboard',compact('candidacy_applications'));
+        return view('dashboard',compact('candidacy_applications','news'));
         }
+       
         return view('dashboard');
     }
 
@@ -63,5 +66,18 @@ class CandidacyApplicationController extends Controller
     }
        return Redirect()->route('show_dashboard',compact('candidacy_application'))
        ->with('massage',' نحن نعتذر و لكنك قمت بالتصويت من قبل' );
+    }
+
+    public function search(Request $request)
+    {
+    
+    $query = $request->input('search');
+    
+    $candidacy_applications = candidacy_application::where('election_program', 'like', "%$query%")
+        ->orWhere('education', 'like', "%$query%")
+        ->orWhere('category', 'like', "%$query%")
+        ->get();    
+
+    return view('search_election',compact('candidacy_applications'));
     }
 }

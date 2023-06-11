@@ -40,13 +40,17 @@
     </span>
     </div>
     @endif
+    @if (session('application_message'))
+    <div class="alert alert-success text-center">
+        <span class="container" >
+        {{ session('application_message') }}
+    </span>
+    </div>
+    @endif
     <div class="landing">
         <div class="container">
             <div class="text">
                 <h1 class="text-5xl font-bold">Welcome, To Elections World</h1>
-                <!-- <p>Welcome to our Elections website! Here, you can find all the information you need about the upcoming elections,
-                    including registration, candidates, and voting. Our goal is to provide a user-friendly platform that allows you to
-                    easily participate in the democratic process. Stay informed and get ready to cast your vote!</p> -->
                 <p>مرحبًا بكم في موقعنا الإلكتروني الخاص بالانتخابات! هنا ، يمكنك العثور على جميع المعلومات التي تحتاجها
                     حول الانتخابات
                     القادمة ، بما في ذلك التسجيل والمرشحين والتصويت. هدفنا هو توفير منصة سهلة الاستخدام تتيح لك المشاركة
@@ -112,17 +116,22 @@
             </p>
         </div>
         <div class="container mt-5">
+            
+            @foreach ($news as $one_news )
             <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-01.jpg'); }}" alt="" />
+                <img decoding="async" src="{{ asset('app/public/'. $one_news->image_path) }}" alt="" width="100px" height="100px" />
                 <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
+                    <h3>{{ $one_news->title }}</h3>
+                    <p>{{ $one_news->description }}</p>
                 </div>
                 <div class="info">
                     <a href="">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
+            
+            @endforeach
+            
             <div class="box">
                 <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
                 <div class="content">
@@ -200,6 +209,17 @@
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
+            <div class="box">
+                <img decoding="async" src="{{ URL::asset('images/cat-08.jpg'); }}" alt="" />
+                <div class="content">
+                    <h3>Test Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
+                </div>
+                <div class="info">
+                    <a href="">Read More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
         </div>
     </div>
     <div class="spikes"></div>
@@ -207,28 +227,35 @@
     <!-- Start Candidates section  -->
 
     <div class="latest-news" id="candidates">
-        <h2 class="main-title font-bold  hover:bg-blue-500">ساحة الانتخابات</h2>
-        
+        <h2 class="main-title font-bold  hover:bg-blue-500">ساحة الانتخابات</h2> 
+        <ul>
+        <li>
+            <div class="search-container text-center">
+            
+            <form action="{{ route('search.index') }}" method="POST">
+                @csrf
+                <input type="text" name="search" placeholder="البحث عن مرشح او برنامج انتخابي">
+                <button type="submit">Search  <i class="fa fa-search search-icon"></i></button>
+               
+              </form>
+          </div></li>
+        </ul>
         <div class="text">
             <h1 class="font-bold mb-5">المرشحين</h1>
             <p>سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
-            </p>
-            
+            </p>   
         </div>
         <div class="container mt-5"> 
             @foreach($candidacy_applications as $candidacy_application)  
-
             @if($candidacy_application->status == 1)
             <div class="box">
-                <img  src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" width="600px" height="348px" />
+                <img  src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" />
                 <div class="content">
-                    
                     <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
                     <h6> البرنامج الانتخابي
                     <p> {{ $candidacy_application->election_program }} </p>
                 </h6>
-                    <h4 class="text-center">
-                        
+                    <h4 class="text-center">   
                     <p> Votes : {{ $candidacy_application->votes}}</p>
                 </h4>
                 </div>
@@ -237,10 +264,12 @@
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             @endif
-           
-                    @endforeach
-            </div>              
+        </div> 
+            @endforeach          
+                  
+            
          </div>
+    </div>
     <!-- End Candidates section  -->
 
     <!-- Start Events -->

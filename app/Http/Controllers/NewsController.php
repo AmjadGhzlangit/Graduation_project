@@ -30,8 +30,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        // $imagePath = $request->file('image_path')->store('news_images','news');
-
+        
          News::create([
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
@@ -48,7 +47,8 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        
+        // dd($news);
+        return view('admin.pages.news.edit_news',compact('news'));
     }
 
     /**
@@ -56,7 +56,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        dd($news);
+        return view('admin.pages.news.edit_news',compact('news'));
     }
 
     /**
@@ -64,8 +65,18 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        // dd($request);
+        $news->update([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'image_path'=>$request->file('image_path')->store('images','public'),
+          
+    ]);
+    
+
+        return redirect()->route('news.index')->with('message','News Added successfully');
     }
+    
 
     /**
      * Remove the specified resource from storage.

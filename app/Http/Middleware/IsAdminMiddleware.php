@@ -18,9 +18,9 @@ class IsAdminMiddleware
           //if no user or if the user is not admin 
         if (!auth()->check() || !auth()->user()->is_admin) 
         {
-        abort(403); 
+            redirect()->route('adm.index');
         }
 
-        return $next($request);
+        return abort(403, 'Sorry you do not have access');
     }
 }

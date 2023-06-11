@@ -4,7 +4,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title"> Candidacy_Applications </h3>
+        <h3 class="page-title">  Today Messages </h3>
         <nav aria-label="breadcrumb">
         </nav>
       </div>

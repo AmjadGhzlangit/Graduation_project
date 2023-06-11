@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestEmail;
 use App\Models\candidacy_application;
 use App\Models\election_commission;
 use App\Models\IdInformation;
 use App\Models\image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ElectionCommissionController extends Controller
 {
@@ -67,8 +69,8 @@ class ElectionCommissionController extends Controller
         
         $candidacy_application->status = true;
         $candidacy_application->save();
-        
-        return redirect()->route('index')->with('success', 'User has been activated.');
+        Mail::to('amjadghzlangit@gmail.com')->send(new TestEmail);
+        return redirect()->route('index')->with('success', 'تم قبول المرشح بنجاح');
 
     }
 

@@ -7,7 +7,7 @@
     @csrf
     <div class="form-group row">
         <label for="first_name">News Title</label>
-        <input type="text" class="form-control" name="title"   placeholder="Enter Title">
+        <input type="text" class="form-control" name="title" value="{{ old('title') }}"  placeholder="Enter Title">
       </div>
 
       {{-- description  --}}
