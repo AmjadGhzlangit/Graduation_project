@@ -10,6 +10,13 @@
         </span>
         </div>
         @endif
+        @if(session('successful'))
+        <div class="alert alert-success text-center">
+            <span class="container" >
+            {{ session('successful') }}
+        </span>
+        </div>
+        @endif
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title"> Candidacy_Applications </h3>

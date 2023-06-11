@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\candidacy_application;
+use App\Models\election_commission;
 use App\Models\image;
 use App\Models\News;
 use App\Models\User;
@@ -22,9 +23,10 @@ class CandidacyApplicationController extends Controller
     {
         $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
         $news = News::all();
+        $date = election_commission::all();
         if($candidacy_applications)
         {
-        return view('dashboard',compact('candidacy_applications','news'));
+        return view('dashboard',compact('candidacy_applications','news' ,'date'));
         }
        
         return view('dashboard');

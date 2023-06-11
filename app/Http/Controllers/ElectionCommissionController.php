@@ -30,9 +30,10 @@ class ElectionCommissionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function  create_election()
     {
-        //
+       
+        return view('election_commission.pages.create_election');
     }
 
     /**
@@ -40,7 +41,17 @@ class ElectionCommissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->start_election > $request->end_election)
+        {
+            // dd($request);
+            return redirect()->route('create_election')->with('error','You Enter the date false');
+        }
+        election_commission::create([
+            'start_election'=>$request->input('start_election'),
+            'end_election'=>$request->input('end_election'),
+        ]);
+        return redirect()->route('index')->with('successful','Create election date successful ');
+
     }
 
     /**

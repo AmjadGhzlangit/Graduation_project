@@ -160,7 +160,7 @@
         <div class="container mt-5"> 
             @foreach($candidacy_applications as $candidacy_application)  
             @if($candidacy_application->status == 1)
-            <div class="box">
+            <div class="box" >
                 <img  src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" />
                 <div class="content">
                     <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
@@ -192,19 +192,19 @@
             <h2 class="title"> انتهاء الانتخابات خلال </h2>
             <div class="time">
                 <div class="unit">
-                    <span class="days">15</span>
+                    <span class="days" id="box">0</span>
                     <span>Days</span>
                 </div>
                 <div class="unit">
-                    <span class="hours">08</span>
+                    <span class="hours">0</span>
                     <span>Hours</span>
                 </div>
                 <div class="unit">
-                    <span class="minutes">45</span>
+                    <span class="minutes">0</span>
                     <span>Minutes</span>
                 </div>
                 <div class="unit">
-                    <span class="seconds">55</span>
+                    <span class="seconds">0</span>
                     <span>Seconds</span>
                 </div>
             </div>
@@ -246,9 +246,39 @@
         </div>
     </div>
     </div>
-        <!-- End Support Section -->
+<script>
+        var date = @json($date);
+    for (var i = 0; i < date.length; i++) {
+        let start = new Date(date[i].start_election);
+        let end = new Date(date[i].end_election);
+        
+        let counter = setInterval(() => {
+            // Get Date Now
+            let now = new Date();
+        
+            // Find The Date Difference Between end_election And start_election Date
+            let electionDuration = (end - start);
+            let timeElapsed = (now - start);
+            let timeRemaining = electionDuration - timeElapsed;
 
-    <script src="{{asset('js/main.js')}}></script> 
+            // Get Time Units
+            let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            if (timeRemaining > 0) {
+                document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
+                document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
+                document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
+                document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+            } else {
+                clearInterval(counter);
+                // Do something when the countdown is finished
+            }
+        }, 1000);
+    }
+</script>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

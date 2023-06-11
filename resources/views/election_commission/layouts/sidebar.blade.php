@@ -32,6 +32,9 @@
             <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
                 <span class="menu-title">Settings</span>
             </a>
+            <a href="{{ route('create_election') }}" class="nav-link"><i class="fa fa-cogs"></i>
+                <span class="menu-title">Create Election</span>
+            </a>
             </div>
         </li>
         <li class="nav-item sidebar-user-actions">
