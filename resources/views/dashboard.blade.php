@@ -154,10 +154,10 @@
         </ul>
         <div class="text">
             <h1 class="font-bold mb-5">المرشحين</h1>
-            <p>سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
+            <p class="election-text">سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
             </p>   
         </div>
-        <div class="container mt-5"> 
+        <div class="container mt-5 my-div"> 
             @foreach($candidacy_applications as $candidacy_application)  
             @if($candidacy_application->status == 1)
             <div class="box" >
@@ -235,7 +235,7 @@
     </div>
     <div class="form">
         <div class="content">
-        <h2>تواصل معنا</h2>
+        <h2 class="amjad">تواصل معنا</h2>
         <form action="{{ route('messages.store')}}" method="post">
             @csrf
             <input class="input" type="text" placeholder="Your Name" name="name" >
@@ -247,7 +247,9 @@
     </div>
     </div>
 <script>
-        var date = @json($date);
+    
+        let date = @json($date);
+        
     for (var i = 0; i < date.length; i++) {
         let start = new Date(date[i].start_election);
         let end = new Date(date[i].end_election);
@@ -272,12 +274,25 @@
                 document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
                 document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
                 document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+                document.querySelector('.election-text').innerHTML = 'الانتخابات تجري الان ! لاتتردد في التصويت والمشاركة في صناعة مستقبلنا جميعاً';
+                document.querySelector('.election-text').innerHTML = 'لقد انتهت العملية الانتخابية للاطلاع على النتيجة النهائية الرجاء زيارة الرابط أسفل ';
+
+
+            //    let amjad= document.querySelector(".amjad");
+            //     amjad.style.display = 'none';
             } else {
                 clearInterval(counter);
-                // Do something when the countdown is finished
+                document.querySelector(".description").innerHTML = 'لقد انتهت العملية الانتخابية من المهم أن نتذكر أن الانتخابات هي عملية ديمقراطية حيوية ومهمة، وعلينا جميعًا احترام النتائج النهائية والعمل معًا كمواطنين لبناء مستقبل أفضل لبلدنا. سواء كنتم فائزين أو خاسرين';
+                document.querySelector('.election-text').innerHTML = 'لقد انتهت العملية الانتخابية للاطلاع على النتيجة النهائية الرجاء زيارة الرابط أسفل ';
+
             }
         }, 1000);
     }
+
+    let myDiv = document.querySelector('.my-div');
+        myDiv.style.display = 'none';
+   
+       
 </script>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

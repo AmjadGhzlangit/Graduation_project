@@ -28,13 +28,6 @@
                         <td>{{ $message->email }}</td>
                         <td>{{ $message->message }}</td>
                         <td>
-                          <form action="{{ route('messages.delete',$message) }}" method="POST">
-                          @csrf
-                      <input type="submit" class="btn btn-danger" value="Solve">
-                  </td>
-              </form>
-                        </td>
-                        <td>
                             <form action="{{ route('messages.delete',$message) }}" method="POST">
                                 @csrf
                             <input type="submit" class="btn btn-danger" value="Delete">
