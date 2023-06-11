@@ -44,15 +44,7 @@
 شكرًا لزيارتكم موقعنا الإلكتروني الخاص بالانتخابات. نحن ملتزمون بتوفير معلومات دقيقة وشفافة حول الانتخابات وعملية
 التصويت            </p>
         </div>
-        <div class="box">
-            <ul class="links">
-                <li><a href="#">Important Link 1</a></li>
-                <li><a href="#">Important Link 2</a></li>
-                <li><a href="#">Important Link 3</a></li>
-                <li><a href="#">Important Link 4</a></li>
-                <li><a href="#">Important Link 5</a></li>
-            </ul>
-        </div>
+
         <div class="box">
             <div class="line">
                 <i class="fas fa-phone-volume fa-fw"></i>

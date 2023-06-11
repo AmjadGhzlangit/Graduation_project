@@ -27,11 +27,7 @@
             </div>
         </li>
         <li class="nav-item sidebar-user-actions">
-            <div class="sidebar-user-menu">
-                <a href="{{ route('adm.create') }}" class="nav-link"><i class="mdi mdi-account-plus"></i>
-                    <span class="menu-title">Add Admin</span>
-                </a>
-                </div>
+           
             <div class="sidebar-user-menu">
                 <a href="{{ route('adm.create') }}" class="nav-link"><i class="mdi mdi-account-plus"></i>
                     <span class="menu-title">Add Election</span>

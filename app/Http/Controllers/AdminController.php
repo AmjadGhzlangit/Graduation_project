@@ -24,7 +24,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.admin_form');
+        return view('admin.pages.election_form');
     }
 
     /**
@@ -32,7 +32,6 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $user = User::create([
             'name'=>$request->input('first_name'),
             'last_name'=>$request->input('last_name'),
@@ -44,38 +43,5 @@ class AdminController extends Controller
         ]);
         $user->save() ; 
         return redirect()->route('adm.index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-   
-    public function login()
-    {
-        return view('auth.admin_login');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Admin $admin)
-    {
-        //
     }
 }

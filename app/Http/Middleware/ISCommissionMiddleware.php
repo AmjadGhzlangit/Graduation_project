@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdminMiddleware
+class ISCommissionMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,12 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // dd($request);
-          //if no user or if the user is not admin 
-          if (!$request->user() || !$request->user()->is_admin) {
+        $email = $request->email;
+        if (!$request->user() || strpos($email, '@election.com')) {
             return abort(403, 'Sorry you do not have access');
         }
 
         return $next($request);
     }
+       
 }

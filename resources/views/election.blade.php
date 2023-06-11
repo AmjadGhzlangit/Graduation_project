@@ -29,12 +29,13 @@
         {{-- put the image here  --}}
         <div class="container">
             <div class="box box_election">
-                <img decoding="async" src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" alt="" width="150px" height="150px" style="margin-bottom: 10px" />
+                <img decoding="async" src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" alt="" width="200px" height="200px" style="margin-bottom: 10px" />
 
                 <div class="content">
-                    <h3 class="info"> Name: {{ $candidacy_application->id_information->first_name }} {{ $candidacy_application->id_information->last_name }}</h3>
-                    <p>Election Program : {{ $candidacy_application->election_program }}</p>
-                    <h5> Category : {{ $candidacy_application->category }}</h5>
+                    <h3 class="info"> الاسم :  {{ $candidacy_application->id_information->first_name }} {{ $candidacy_application->id_information->last_name }}</h3>
+                    <p> البرنامج الانتخابي : {{ $candidacy_application->election_program }} </p>
+
+                    <h5> الفئة {{ $candidacy_application->category }}</h5>
 
                     <div id="dialog-box">
                         <div id="dialog-message"></div>

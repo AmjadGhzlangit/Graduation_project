@@ -66,6 +66,7 @@
             <a href="#about"><i class="fas fa-angle-double-down fa-2x"></i></a>
         </div>
     </div>
+    
     <!-- End Landing section  -->
 
     <!-- Start About Us Section  -->
@@ -125,102 +126,13 @@
                     <p>{{ $one_news->description }}</p>
                 </div>
                 <div class="info">
-                    <a href="">Read More</a>
+                    <a href="{{ route('display_news', $one_news->id) }}">Read More</a>
                     <i class="fas fa-long-arrow-alt-right"></i>
                 </div>
             </div>
             
             @endforeach
-            
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-02.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-04.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-05.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-06.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-07.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-08.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ URL::asset('images/cat-08.jpg'); }}" alt="" />
-                <div class="content">
-                    <h3>Test Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit</p>
-                </div>
-                <div class="info">
-                    <a href="">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-        </div>
+          
     </div>
     <div class="spikes"></div>
     <!-- End latest-news section  -->
@@ -252,9 +164,7 @@
                 <img  src="{{ asset('app/public/'.$candidacy_application->images->font_img)}}" />
                 <div class="content">
                     <h3>{{ $candidacy_application->id_information->first_name}} {{ $candidacy_application->id_information->last_name }}</h3>
-                    <h6> البرنامج الانتخابي
-                    <p> {{ $candidacy_application->election_program }} </p>
-                </h6>
+                    <p> البرنامج الانتخابي : {{ $candidacy_application->election_program }} </p>
                     <h4 class="text-center">   
                     <p> Votes : {{ $candidacy_application->votes}}</p>
                 </h4>
@@ -265,9 +175,7 @@
                 </div>
             @endif
         </div> 
-            @endforeach          
-                  
-            
+            @endforeach           
          </div>
     </div>
     <!-- End Candidates section  -->

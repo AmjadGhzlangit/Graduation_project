@@ -70,7 +70,7 @@ class ElectionCommissionController extends Controller
         $candidacy_application->status = true;
         $candidacy_application->save();
         Mail::to('amjadghzlangit@gmail.com')->send(new TestEmail);
-        return redirect()->route('index')->with('success', 'تم قبول المرشح بنجاح');
+        return redirect()->route('index')->with(' ', 'تم قبول المرشح بنجاح');
 
     }
 

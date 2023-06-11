@@ -80,4 +80,10 @@ class CandidacyApplicationController extends Controller
 
     return view('search_election',compact('candidacy_applications'));
     }
+
+    public function display_news(News $news)
+    {
+        $one_news = $news;
+        return view('show_news',compact('one_news'));
+    }
 }

@@ -38,6 +38,7 @@ Route::post('/messages', [MessageeController::class, 'store'])->name('messages.s
 Route::post('/messages/{message}', [MessageeController::class, 'delete'])->name('messages.delete');
 
 Route::get('election/{candidacy_application}',[CandidacyApplicationController::class,'show_data'])->name('show_election');
+Route::get('dashborad/news/{news}',[CandidacyApplicationController::class,'display_news'])->name('display_news');
 
 Route::get('/update_password', function () {
             return view('profile.partials.update-password-form');
@@ -67,14 +68,13 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-    Route::get('/index',[ElectionCommissionController::class,'index'])->name('index');
-    Route::get('/blank/{candidacy_application}',[ElectionCommissionController::class,'show'])->name('blank');
-    Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
-    Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
+Route::get('/index',[ElectionCommissionController::class,'index'])->name('index');
+Route::get('/blank/{candidacy_application}',[ElectionCommissionController::class,'show'])->name('blank');
+Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
+Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
+
     
-    
-    Route::get('/admin/login', [AdminController::class,'login']);
-    // Route::get('/admi',[AdminController::class,'index']);
+Route::get('/admin/login', [AdminController::class,'login']);
 Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
 Route::resource('adm',AdminController::class)->middleware('is_admin');
   

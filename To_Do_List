@@ -1,5 +1,5 @@
 To Do List :
-* Add serch bar
+* Add serch bar )(done)
 * add the validtion to id form and other form 
 ----------------------------------------------------
                         election_commission
@@ -42,3 +42,7 @@ To Do List :
     - validition with NewsRequest 
     - show news in dashbored (done)
 }
+----------------------------------------------------
+                            News
+
+  * add view to show the news 
