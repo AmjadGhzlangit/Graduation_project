@@ -69,14 +69,15 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/index',[ElectionCommissionController::class,'index'])->name('index');
 Route::view('/election','election_commission.pages.create_election')->name('create_election');
-
 Route::post('/election/create',[ElectionCommissionController::class,'store'])->name('store_election_data');
 Route::get('/blank/{candidacy_application}',[ElectionCommissionController::class,'show'])->name('blank');
 Route::put('/active/{candidacy_application}',[ElectionCommissionController::class,'update'])->name('active');
 Route::put('/delete/{candidacy_application}',[ElectionCommissionController::class,'destroy'])->name('destroy');
 
 // test 
-    
+// Route::view('/election_finish','finish-election')->name('finish_election');
+
+Route::get('/election_finish',[CandidacyApplicationController::class,'finish_election'])->name('finish_election');
 Route::get('/admin/login', [AdminController::class,'login']);
 Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
 Route::resource('adm',AdminController::class)->middleware('is_admin');

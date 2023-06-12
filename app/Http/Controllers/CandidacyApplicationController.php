@@ -32,6 +32,14 @@ class CandidacyApplicationController extends Controller
         return view('dashboard');
     }
 
+    public function finish_election()
+    {
+        $max_votes = candidacy_application::max('votes'); // Get the maximum number of votes
+        // dd($max_votes);
+        $candidacy_application = candidacy_application::where('votes', $max_votes)->first(); // Retrieve all candidacy applications with the maximum number of votes
+        // $candidacy_applications =  candidacy_application::where('votes');
+        return view('finish-election',compact('candidacy_application'));
+    }
     public function store(Request $request)
     {
         // dd($request);

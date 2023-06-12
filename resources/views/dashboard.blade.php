@@ -157,6 +157,9 @@
             <p class="election-text">سنعلن قريباً عن المواعيد القادمة للانتخابات. يرجى الاطلاع على هذه الصفحة بانتظام للحصول على التحديثات.
             </p>   
         </div>
+        <div class="finish_election font-bold main-title hover:bg-blue-500 info" style="display: none">
+        <a href="{{ route('finish_election') }}" >النتائج</a>
+    </div>
         <div class="container mt-5 my-div"> 
             @foreach($candidacy_applications as $candidacy_application)  
             @if($candidacy_application->status == 1)
@@ -269,30 +272,30 @@
             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            if (timeRemaining > 0) {
+            if (timeRemaining < 0) {
                 document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
                 document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
                 document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
                 document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
                 document.querySelector('.election-text').innerHTML = 'الانتخابات تجري الان ! لاتتردد في التصويت والمشاركة في صناعة مستقبلنا جميعاً';
                 document.querySelector('.election-text').innerHTML = 'لقد انتهت العملية الانتخابية للاطلاع على النتيجة النهائية الرجاء زيارة الرابط أسفل ';
-
+              
 
             //    let amjad= document.querySelector(".amjad");
             //     amjad.style.display = 'none';
-            } else {
+            } 
+            else {
                 clearInterval(counter);
                 document.querySelector(".description").innerHTML = 'لقد انتهت العملية الانتخابية من المهم أن نتذكر أن الانتخابات هي عملية ديمقراطية حيوية ومهمة، وعلينا جميعًا احترام النتائج النهائية والعمل معًا كمواطنين لبناء مستقبل أفضل لبلدنا. سواء كنتم فائزين أو خاسرين';
                 document.querySelector('.election-text').innerHTML = 'لقد انتهت العملية الانتخابية للاطلاع على النتيجة النهائية الرجاء زيارة الرابط أسفل ';
+                let link = document.querySelector('.finish_election'); 
+                link.style.display='block';
 
+                let myDiv = document.querySelector('.my-div');
+                myDiv.style.display = 'none';
             }
         }, 1000);
-    }
-
-    let myDiv = document.querySelector('.my-div');
-        myDiv.style.display = 'none';
-   
-       
+    }   
 </script>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

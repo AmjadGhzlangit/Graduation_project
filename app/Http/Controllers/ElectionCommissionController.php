@@ -22,11 +22,14 @@ class ElectionCommissionController extends Controller
         return view('election_commission.index',compact('candidacy_applications'));
     }
 
-    // public function show_data()
-    // {
-    //     $candidacy_applications =  candidacy_application::with(['id_information','images'])->get();
-    //     return view('dashboard',compact('candidacy_applications'));
-    // }
+    public function finish_election()
+    {
+        $max_votes = candidacy_application::max('votes'); // Get the maximum number of votes
+
+        $candidacy_applications = candidacy_application::where('votes', $max_votes)->get(); // Retrieve all candidacy applications with the maximum number of votes
+        // $candidacy_applications =  candidacy_application::where('votes');
+        return view('',compact('candidacy_applications'));
+    }
     /**
      * Show the form for creating a new resource.
      */
