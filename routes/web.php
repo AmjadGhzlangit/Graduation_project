@@ -77,7 +77,7 @@ Route::put('/delete/{candidacy_application}',[ElectionCommissionController::clas
 // test 
 // Route::view('/election_finish','finish-election')->name('finish_election');
 
-Route::get('/election_finish',[CandidacyApplicationController::class,'finish_election'])->name('finish_election');
+Route::get('/election_finish',[CandidacyApplicationController::class,'finish_election'])->name('finish_election');  
 Route::get('/admin/login', [AdminController::class,'login']);
 Route::get('/admin/form',[AdminController::class,'create'])->name('show_form');
 Route::resource('adm',AdminController::class)->middleware('is_admin');

@@ -10,7 +10,7 @@
         </p>
     </header>
 
-   <a href="{{ route('form_one') }}" class="btn btn-primary">Create Candidacy Application</a>
+   {{-- <a href="{{ route('form_one') }}" class="btn btn-primary">Create Candidacy Application</a> --}}
 
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">

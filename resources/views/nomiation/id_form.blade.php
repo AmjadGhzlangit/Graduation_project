@@ -13,23 +13,23 @@
     @csrf
     
   <div class="form-group">
-    <label for="first_name">first_name</label>
+    <label for="first_name">الاسم الاول</label>
     <input type="input" name="first_name" class="form-control">
   </div>
   <div class="form-group">
-    <label for="last_name">last_name</label>
+    <label for="last_name">الكنية</label>
     <input type="input" name="last_name" class="form-control">
   </div>
   <div class="form-group">
-    <label for="father_name">father_name</label>
+    <label for="father_name">اسم الاب</label>
     <input type="input" name="father_name" class="form-control">
   </div>
   <div class="form-group">
-    <label for="mother_name">mother_name</label>
+    <label for="mother_name">اسم الأم</label>
     <input type="input" name="mother_name" class="form-control">
   </div>
   <div class="form-group">
-    <label for="birthday">birthday</label>
+    <label for="birthday">التولد</label>
     <input type="date" name="birthday" class="form-control">
   </div>
   <div class="form-group">
@@ -37,22 +37,22 @@
     <input type="input" name="place_birth" class="form-control">
   </div>
   <div class="form-group">
-    <label for="place_registration">place_registration</label>
+    <label for="place_registration">مكان القيد</label>
     <input type="input" name="place_registration" class="form-control">
   </div>
   <div class="form-group">
-    <label for="number_registration">number_registration</label>
+    <label for="number_registration">رقم القيد</label>
     <input type="input" name="number_registration" class="form-control">
   </div>
   <div class="form-group">
-    <label for="gender">gender</label>
+    <label for="gender">الجنس</label>
     <select id="gender" name="gender" class="form-control">
             <option selected>Choose Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Next</button>
+  <button type="submit" class="btn btn-primary">التالي</button>
 
 </form>
 

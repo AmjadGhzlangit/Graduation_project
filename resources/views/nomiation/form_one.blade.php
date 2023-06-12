@@ -13,26 +13,23 @@
     @csrf
   <div class="form-group">
     <div class="form-group">
-    <label>election_program</label>
+    <label>برنامج الترشح</label>
     <input type="input" name="election_program" class="form-control">
   </div>
-    <label>education</label>
+    <label>درجة التعليم</label>
     <input type="input" name="education" class="form-control">
   </div>
+  
   <div class="form-group">
-    <label>phoneNumber</label>
-    <input type="input" name="phoneNumber" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">address</label>
+    <label for="exampleInputEmail1">العنوان</label>
     <input type="input" name="address" class="form-control">
   </div>
   <div class="form-group">
-    <label>categories</label>
+    <label>الفئة</label>
     <select id="category" name="category" class="form-control mt-1 block w-full rounded-lg py-2 ">
             <option selected>Choose Category</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
+            <option value="A">أ</option>
+            <option value="B">ب</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Next</button>

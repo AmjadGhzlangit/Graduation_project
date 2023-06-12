@@ -11,41 +11,41 @@
   <form method="POST" action="{{route('processForm_two')}}" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
-    <label for="font_img" class="block font-medium text-sm text-gray-700">Front Image</label>
+    <label for="font_img" class="block font-medium text-sm text-gray-700">الصورة الشخصية</label>
     <input type="file" name="font_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="back_img">back Image</label>
+    <label for="back_img">صورة الهوية الشخصية</label>
     <input type="file" name="back_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="registerWork_img">registerWork image</label>
+    <label for="registerWork_img">بيان العمل</label>
     <input type="file" name="registerWork_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="familyDocument_img">familyDocument image</label>
+    <label for="familyDocument_img">صورة بيان العائلة</label>
     <input type="file" name="familyDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="residenceDocument_img">residenceDocument image</label>
+    <label for="residenceDocument_img"> صورة سند الاقامة</label>
     <input type="file" name="residenceDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="education_img">education image</label>
+    <label for="education_img"> صورة وثيقة التعليم</label>
     <input type="file" name="education_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="convicationDocument_img">convicationDocument-img</label>
+    <label for="convicationDocument_img">صورة غير محكوم عليه</label>
     <input type="file" name="convicationDocument_img" class="form-control">
   </div>
   <div class="form-group">
-    <label for="medicalExamination_img">medicalExamination-img</label>
+    <label for="medicalExamination_img">صورة فحص طبي</label>
     <input type="file" name="medicalExamination_img" class="form-control">
   </div>
   <button type="submit" class="btn btn-primary">Save</button>
 
   </form>
-  <h1>this form tow</h1>
+ 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
